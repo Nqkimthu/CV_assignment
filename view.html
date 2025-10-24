@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Kim Thư - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #8B1538 0%, #6B0F2A 100%);
+            color: white;
+            padding: 60px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .name-section h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .arrow {
+            font-size: 3em;
+            margin-top: 20px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+
+        .contact-info {
+            text-align: right;
+        }
+
+        .student-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info p {
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 0;
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            padding: 50px 40px;
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #8B1538;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #8B1538;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-text {
+            line-height: 1.8;
+            color: #333;
+            text-align: justify;
+        }
+
+        .education-item {
+            margin-bottom: 25px;
+        }
+
+        .degree {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .school {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 3px;
+        }
+
+        .year {
+            color: #999;
+            font-size: 0.85em;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-name {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .skill-icons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .icon {
+            width: 10px;
+            height: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 0.75em;
+            transition: transform 0.3s ease;
+        }
+
+        .icon:hover {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .language-item {
+            margin-bottom: 20px;
+        }
+
+        .language-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8B1538 0%, #C41E3A 100%);
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        .job {
+            margin-bottom: 35px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #8B1538;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .job:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .job-header {
+            margin-bottom: 15px;
+        }
+
+        .company {
+            font-weight: 700;
+            font-size: 1.1em;
+            color: #8B1538;
+            text-transform: uppercase;
+        }
+
+        .job-title {
+            font-size: 0.95em;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .period {
+            color: #999;
+            font-size: 0.85em;
+        }
+
+        .job-details {
+            margin-top: 12px;
+        }
+
+        .job-details li {
+            margin-bottom: 8px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .note {
+            font-style: italic;
+            color: #666;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-info {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .name-section h1 {
+                font-size: 2.5em;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <div class="name-section">
+                    <h1>NGUYỄN KIM THƯ</h1>
+                    <div class="arrow">↗</div>
+                </div>
+                <div class="contact-info">
+                    <div class="student-badge">Student</div>
+                    <p>0397 089 295</p>
+                    <p>Ho Chi Minh city, VN</p>
+                    <p>nqkimthubinh@gmail.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="section">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="about-text">
+                       Digital Business Analyst with proven expertise in optimizing workflows, orchestrating complex projects, and generating actionable business insights. Skilled at translating strategic business requirements into technical solutions and delivering impactful data visualizations to drive informed decision-making.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Education</h2>
+                    <div class="education-item">
+                        <div class="degree">COMPUTER SCIENCE</div>
+                        <div class="school">University of Information Technology, HCM</div>
+                        <div class="year">(F.Y - 2029)</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="degree">BUSINESS ADMINISTRATION</div> 
+                        <div class="school">National Economics University, Hanoi</div>
+                        <div class="year">(F.Y - 2029)</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skill-item">
+                        <div class="skill-name">Task Management</div>
+                        <div class="skill-icons">
+                             
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Data Analysis & Reporting</div>
+                        <div class="skill-icons">
+
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">UX & UI</div>
+                        <div class="skill-icons">
+
+                            
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Technicals</div>
+                        <div class="skill-icons">
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Languages</h2>
+                    <div class="language-item">
+                        <div class="language-name">Chinese</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">English</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="section">
+                    <h2 class="section-title">Work Experience</h2>
+                    
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="period">05 - 2019</div>
+                            <div class="company">Grab Food - Campaign Mini Game</div>
+                        </div>
+                        <div class="job-details">
+                            <ul>
+                                <li><strong>Role:</strong> DBA / Graphic Designer</li>
+                                <li><strong>Tools:</strong> Figma, Illustrator, Photoshop</li>
+                                <li><strong>Outcome:</strong>  Designed a “Lucky Wheel” mini-game for Grab Food’s discount campaign, following Grab’s Art Direction and brand color guidelines. Integrated key visuals (Unicorn) previously featured in Grab TVCs.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="period">2020</div>
+                            <div class="company">Camid - Branding</div>
+                        </div>
+                        <div class="job-details">
+                            <ul>
+                                <li><strong>Role:</strong> DBA / Branding Concept Designer</li>
+                                <li><strong>Tools:</strong>  Figma, Research, Idea Generation</li>
+                                <li><strong>Outcome:</strong> Led the concept development for a mobile app functioning as a "digital passport" for youth.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="period">01 - 2022</div>
+                            <div class="company">Faco Capital - Website Design & Development</div>
+                        </div>
+                        <div class="job-details">
+                            <ul>
+                                <li><strong>Role:</strong> Digital Business Analyst</li>
+                                <li><strong>Tools:</strong> Figma, HTML, CSS, JavaScript (concept demo)</li>
+                                <li><strong>Outcome:</strong>  Collaborated with the team to design and develop faco.capital.</li>
+                               <strong>Note:</strong> Only participated in concept, prototyping, and idea generation, safe for sharing with leader.</li>  
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="period">04 - 2023</div>
+                            <div class="company">Tiger Beer - UI/UX Design & Game Development</div>
+                        </div>
+                        <div class="job-details">
+                            <ul>
+                                <li><strong>Role:</strong> Digital BA / UX Designer</li>
+                                <li><strong>Tools:</strong> Figma, Unity, Adobe XD</li>
+                                <li><strong>Outcome:</strong> Developed interactive experiences for drinkers to engage with the Tiger Beer brand.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="period">2023 - 2024</div>
+                            <div class="company">Netco Post - Mascot Design</div>
+                        </div>
+                        <div class="job-details">
+                            <ul>
+                                <li><strong>Role:</strong> Digital Business Analyst / Concept Designer</li>
+                                <li><strong>Tools:</strong> Figma, Illustrator, After Effects, Research, Idea Generation</li>
+                                <li><strong>Outcome:</strong> Delivered a unique mascot enhancing NETCO Post's brand identity and customer engagement.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
