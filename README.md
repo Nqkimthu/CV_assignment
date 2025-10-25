@@ -1,2 +1,1 @@
-# CSBU103_Assignments 
-Week 2 - CV
+# CSBU103_Assignments
