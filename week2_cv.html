@@ -3,15 +3,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">       
     <title>Nguyễn Kim Thư - CV</title>
-    <style>
+
+   <style>
+     /* Xóa margin, padding mặc định và thiết lập box-sizing */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+         /* Định dạng nền và font tổng thể cho trang */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -19,6 +22,7 @@
             min-height: 100vh;
         }
 
+         /* Thẻ .container chứa toàn bộ nội dung chính của CV */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -29,11 +33,14 @@
             animation: fadeIn 0.8s ease-in;
         }
 
+       
+        /* Hiệu ứng */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Phần header chứa tên và thông tin liên hệ */
         .header {
             background: linear-gradient(135deg, #8B1538 0%, #6B0F2A 100%);
             color: white;
@@ -42,6 +49,7 @@
             overflow: hidden;
         }
 
+        /* Hiệu ứng hình tròn mờ trong header để trang trí */
         .header::before {
             content: '';
             position: absolute;
@@ -53,6 +61,7 @@
             border-radius: 50%;
         }
 
+        /* Chia header thành 2 phần: tên và thông tin liên hệ */
         .header-content {
             display: flex;
             justify-content: space-between;
@@ -61,6 +70,7 @@
             z-index: 1;
         }
 
+        /* Định dạng tên lớn */
         .name-section h1 {
             font-size: 3.5em;
             font-weight: 700;
@@ -68,6 +78,7 @@
             letter-spacing: 2px;
         }
 
+        /* Mũi tên trang trí trong header */
         .arrow {
             font-size: 3em;
             margin-top: 20px;
@@ -75,15 +86,18 @@
             animation: bounce 2s infinite;
         }
 
+        /* Hiệu ứng chuyển động cho mũi tên */
         @keyframes bounce {
             0%, 100% { transform: translateX(0); }
             50% { transform: translateX(10px); }
         }
 
+        /* Định dạng phần thông tin liên hệ */
         .contact-info {
             text-align: right;
         }
 
+        /* Huy hiệu "Student" trong phần header */
         .student-badge {
             display: inline-block;
             background: rgba(255,255,255,0.2);
@@ -93,30 +107,36 @@
             backdrop-filter: blur(10px);
         }
 
+        /* Style màn hình */
         .contact-info p {
             margin: 8px 0;
             font-size: 0.95em;
         }
 
+        /* Style nội dung chính */
         .main-content {
             display: grid;
             grid-template-columns: 1fr 1.5fr;
             gap: 0;
         }
 
+        /* Cột bên trái chứa thông tin cá nhân, kỹ năng, học vấn */
         .sidebar {
             background: #f8f9fa;
             padding: 50px 40px;
         }
 
+         /* Cột bên phải chứa kinh nghiệm làm việc */
         .content {
             padding: 50px 40px;
         }
 
+         /* Mỗi phần (section) có khoảng cách riêng biệt */
         .section {
             margin-bottom: 40px;
         }
 
+        /* Tiêu đề của mỗi phần (About, Skills, Education,...) */
         .section-title {
             font-size: 1.4em;
             font-weight: 700;
@@ -128,15 +148,18 @@
             letter-spacing: 1px;
         }
 
+        /* Phần mô tả bản thân */
         .about-text {
             line-height: 1.8;
             color: #333;
             text-align: justify;
         }
 
+        /* Định dạng từng dòng học vấn */
         .education-item {
             margin-bottom: 25px;
         }
+
 
         .degree {
             font-weight: 700;
@@ -172,7 +195,17 @@
             gap: 10px;
             flex-wrap: wrap;
             margin-top: 8px;
+          
         }
+
+       .skill-icons img {
+    width: 30px;       
+    height: 30px;
+    object-fit: contain; 
+    transition: transform 0.3s ease;
+}
+
+
 
         .icon {
             width: 10px;
@@ -201,6 +234,7 @@
             color: #333;
         }
 
+         /* Thanh tiến trình ngôn ngữ */
         .progress-bar {
             height: 8px;
             background: #e0e0e0;
@@ -224,6 +258,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
+        /* Hiệu ứng hover cho phần job */
         .job:hover {
             transform: translateX(5px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -268,6 +303,7 @@
             text-align: center;
         }
 
+        /* Responsive cho màn hình nhỏ */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -290,24 +326,38 @@
     </style>
 </head>
 <body>
+
+    <!-- Thẻ <div class="container"> bao toàn bộ nội dung CV -->
     <div class="container">
+
+     <!-- Phần đầu trang chứa tên và thông tin cá nhân -->
         <div class="header">
             <div class="header-content">
+             
+                <!-- Phần hiển thị tên -->
                 <div class="name-section">
                     <h1>NGUYỄN KIM THƯ</h1>
                     <div class="arrow">↗</div>
                 </div>
+
                 <div class="contact-info">
                     <div class="student-badge">Student</div>
-                    <p>0397 089 295</p>
+                    <p>ID: 25560057</p>
+                    <p>Phone : 0397 089 295</p>
                     <p>Ho Chi Minh city, VN</p>
                     <p>nqkimthubinh@gmail.com</p>
                 </div>
             </div>
         </div>
+  
 
+     <div class="container"> 
         <div class="main-content">
+
+         <!-- Cột trái: thông tin cá nhân -->
             <div class="sidebar">
+           
+              <!-- Giới thiệu bản thân -->
                 <div class="section">
                     <h2 class="section-title">About Me</h2>
                     <p class="about-text">
@@ -315,6 +365,7 @@
                     </p>
                 </div>
 
+                 <!-- Học vấn -->
                 <div class="section">
                     <h2 class="section-title">Education</h2>
                     <div class="education-item">
@@ -329,34 +380,42 @@
                     </div>
                 </div>
 
+               <!-- Kỹ năng -->
                 <div class="section">
                     <h2 class="section-title">Skills</h2>
+
+               <!-- Nhóm kỹ năng 1 -->
                     <div class="skill-item">
                         <div class="skill-name">Task Management</div>
                         <div class="skill-icons">
-                             
-                        </div>
+                            <img src="https://cdn.worldvectorlogo.com/logos/jira-1.svg" alt="Jira"> 
+                            <img src="https://cdn.worldvectorlogo.com/logos/asana-logo.svg" alt="Asana"> 
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">Data Analysis & Reporting</div>
                         <div class="skill-icons">
-
+                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwuqWn7rCVhqZ_pSlxwVUzlZtFWaOMdbm28A&s" alt="SQL"> 
                         </div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">UX & UI</div>
                         <div class="skill-icons">
-
-                            
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma">
+                            <img src="https://asset.brandfetch.io/idAnDTFapY/idDdbxxs3M.png" alt="Miro">
                         </div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">Technicals</div>
                         <div class="skill-icons">
-                           
+                             <img src="https://cdn.iconscout.com/icon/free/png-256/free-html-5-icon-svg-download-png-1175208.png?f=webp" alt="HTML">
+                             <img src="https://static.cdnlogo.com/logos/c/18/css.svg" alt="CSS">
+                             <img src="https://toppng.com/uploads/preview/javascript-logo-number-angularjs-node-javascript-logo-11563241338go76tq0nxz.png" alt="Javascript">
+
+
                         </div>
                     </div>
                 </div>
+            </div>    
 
                 <div class="section">
                     <h2 class="section-title">Languages</h2>
